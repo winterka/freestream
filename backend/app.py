@@ -3,12 +3,12 @@ from flask import render_template
 from flask import send_from_directory
 from flask import request
 from flask import send_file
-from models import get_tracks, post_track
+from backend.models import get_tracks, post_track
 
 app = Flask(__name__)
 
 @app.route("/", methods = ["GET","POST"])
-def hello_world():
+def home():
     audio_source = '/home/winterec/Desktop/freestream/static/audio/3test.mp3'
     if request.method == "GET":
         pass
@@ -17,7 +17,7 @@ def hello_world():
         post_track(title, audio_source)
         tracks = get_tracks()
         return render_template('index.html', tracks = tracks)
-    return render_template('index.html', tracks = tracks)
+    return render_template('index.html')
 
 
 @app.route('/<audio_file_name>')
