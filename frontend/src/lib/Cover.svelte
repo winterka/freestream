@@ -27,5 +27,7 @@
 
   figcaption {
     text-align: center;
+    margin-top: 0.2rem;
+    font-size: 1.1rem;
   }
 </style>

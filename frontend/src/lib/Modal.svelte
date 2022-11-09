@@ -39,7 +39,7 @@
     top: 0.5rem;
     right: 1rem;
     font-size: 1.7rem;
-    color: #333;
+    color: rgb(255, 244, 224);
     cursor: pointer;
     border: none;
     background: none;
