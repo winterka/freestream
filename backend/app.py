@@ -5,7 +5,7 @@ from flask import send_file
 from flask import jsonify
 from models import get_tracks, post_track
 
-app = Flask(__name__, template_folder='../frontend/templates')
+app = Flask(__name__, template_folder='../frontend/dist', static_folder='../fronten/dist/assets')
 
 @app.route("/", methods = ["GET","POST"])
 def home():
