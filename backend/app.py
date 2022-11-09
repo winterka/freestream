@@ -3,13 +3,13 @@ from flask import render_template
 from flask import request
 from flask import send_file
 from flask import jsonify
+from flask import send_from_directory
 from models import get_tracks, post_track
 
 app = Flask(__name__, template_folder='../frontend/dist', static_folder='../frontend/dist/assets')
 
 @app.route("/", methods = ["GET","POST"])
 def home():
-    audio_source = '/home/winterec/Desktop/freestream/static/audio/3test.mp3'
     if request.method == "GET":
         pass
     if request.method == "POST":
@@ -24,14 +24,12 @@ def home():
 def get_tracks_json():
     return jsonify(get_tracks())
 
-@app.route('/<audio_file_name>')
-def send_track(audio_file_name):
-    path_to_audio_file = "/home/winterec/Desktop/freestream/static/audio/" + audio_file_name
-    return send_file(
-         path_to_audio_file, 
-         mimetype="audio/mpeg", 
-         as_attachment=True, 
-         download_name="zzz.mp3")
+@app.route('/<path:path>', methods = ["GET"])
+def get_cover(path):
+    return send_from_directory(
+        directory = 'src/',
+        path = path
+    )
 
 if __name__ == '__main__':
     app.run(debug=True)
