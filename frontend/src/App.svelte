@@ -1,14 +1,14 @@
 <script>
   import { onMount, tick } from 'svelte';
 
-  let json;
+  let photo;
 
   onMount(async () => {
     const res = await fetch('/api/get-tracks');
-    json = await res.json();
+    const data = await res.json();
     await tick();
-    console.log(json);
+    console.log(data);
   });
 </script>
 
-<p>{json}</p>
+<h1>Hello world</h1>
