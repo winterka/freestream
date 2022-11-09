@@ -17,7 +17,6 @@ def home():
         cover = request.form.get('cover')
         post_track(title, cover)
         return render_template('index.html', tracks = get_tracks())
-    post_track('test-json','watafuk')
     return render_template('index.html', tracks = get_tracks())
 
 @app.route('/api/get-tracks',methods = ['GET'])
@@ -26,10 +25,16 @@ def get_tracks_json():
 
 @app.route('/<path:path>', methods = ["GET"])
 def get_cover(path):
-    return send_from_directory(
-        directory = 'src/',
-        path = path
-    )
+    if path.endswith('.jpg'):
+        return send_from_directory(
+            directory = 'src/',
+            path = path
+        )
+    if path.endswith('.mp3'):
+        return send_from_directory(
+           directory= 'src/audio',
+           path = path
+        )
 
 if __name__ == '__main__':
     app.run(debug=True)
