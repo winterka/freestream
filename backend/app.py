@@ -1,8 +1,8 @@
 from flask import Flask
 from flask import render_template
-from flask import send_from_directory
 from flask import request
 from flask import send_file
+from flask import jsonify
 from models import get_tracks, post_track
 
 app = Flask(__name__, template_folder='../frontend/templates')
@@ -14,11 +14,11 @@ def home():
         pass
     if request.method == "POST":
         title = request.form.get('title')
-        post_track(title, audio_source)
+        cover = request.form.get('cover')
+        post_track(title, cover)
         tracks = get_tracks()
         return render_template('index.html', tracks = tracks)
-    return render_template('index.html')
-
+    return jsonify(get_tracks())
 
 @app.route('/<audio_file_name>')
 def send_track(audio_file_name):
