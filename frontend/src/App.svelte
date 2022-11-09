@@ -1,3 +1,14 @@
-<script></script>
+<script>
+  import { onMount, tick } from 'svelte';
 
-<h1>Hello world</h1>
+  let json;
+
+  onMount(async () => {
+    const res = await fetch('/api/get-tracks');
+    json = await res.json();
+    await tick();
+    console.log(json);
+  });
+</script>
+
+<p>{json}</p>
