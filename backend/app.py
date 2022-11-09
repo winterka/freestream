@@ -17,6 +17,7 @@ def home():
         cover = request.form.get('cover')
         post_track(title, cover)
         return render_template('index.html', tracks = get_tracks())
+    post_track('test-json','watafuk')
     return render_template('index.html', tracks = get_tracks())
 
 @app.route('/api/get-tracks',methods = ['GET'])
