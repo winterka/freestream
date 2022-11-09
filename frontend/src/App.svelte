@@ -12,7 +12,7 @@
 </script>
 
 <main>
-  <h2>text</h2>
+  <h2>Text</h2>
   <div class="spread">
     {#each data as album}
       <figure>
