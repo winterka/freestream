@@ -4,9 +4,10 @@ from os import path
 ROOT = path.dirname(path.relpath((__file__)))
 
 def post_track(title, source_audio):
+    cover = 'src/cover1.jpg'
     con = sql.connect(path.join(ROOT, 'database.db'))
     cur = con.cursor()
-    cur.execute('INSERT INTO tracks (title, source_audio) VALUES (?, ?)', (title, source_audio))
+    cur.execute('INSERT INTO tracks (title, source_audio, cover) VALUES (?, ?, ?)', (title, source_audio, cover))
     con.commit()
     con.close()
 
