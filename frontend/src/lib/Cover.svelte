@@ -1,13 +1,14 @@
 <script>
   export let albumCoverUrl;
   export let albumTitle;
+  export let albumTrack;
 
   import { isModalOpen } from '../stores/modalStore.js';
   import { modalContent } from '../stores/modalStore.js';
 
   function openModal() {
     $isModalOpen = true;
-    $modalContent = albumTitle;
+    $modalContent = albumTrack;
   }
 </script>
 

@@ -1,6 +1,6 @@
 <script>
   import { onMount, tick } from 'svelte';
-  import { isModalOpen } from './stores/modalStore.js';
+  import { isModalOpen, modalContent } from './stores/modalStore.js';
 
   import Cover from './lib/Cover.svelte';
   import Modal from './lib/Modal.svelte';
@@ -23,15 +23,19 @@
 <main>
   <h2>text</h2>
   <div class="spread">
-    {#each data as album}
-      <Cover albumCoverUrl={album[3]} albumTitle={album[1]} />
+    {#each data as album (album[0])}
+      <Cover
+        albumCoverUrl={album[3]}
+        albumTitle={album[1]}
+        albumTrack={album[2]}
+      />
     {/each}
   </div>
 
   {#if $isModalOpen}
     <div class="overlay" on:click={closeModal}>
       <Modal>
-        <AudioPlayer src={data[0][2]} />
+        <AudioPlayer src={$modalContent} />
       </Modal>
     </div>
   {/if}
