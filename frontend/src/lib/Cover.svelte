@@ -41,7 +41,6 @@
     left: 0;
     opacity: 0;
     transition: opacity 0.2s;
-    color: #fff;
     border-radius: 5px;
 
     display: flex;
@@ -52,16 +51,4 @@
   li:hover .overlay {
     opacity: 1;
   }
-
-  /* .album-title {
-    position: relative;
-    text-align: center;
-    bottom: 33px;
-  } */
-
-  /* figcaption {
-    text-align: center;
-    margin-top: 0.2rem;
-    font-size: 1.1rem;
-  } */
 </style>

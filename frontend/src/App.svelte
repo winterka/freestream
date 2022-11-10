@@ -14,14 +14,10 @@
     await tick();
     console.log(data);
   });
-
-  function closeModal() {
-    $isModalOpen = false;
-  }
 </script>
 
 <main>
-  <h2>text</h2>
+  <h2>Test</h2>
   <div class="container">
     <ul class="cover-gallery">
       {#each data as album (album[0])}
@@ -35,11 +31,9 @@
   </div>
 
   {#if $isModalOpen}
-    <div class="overlay" on:click={closeModal}>
-      <Modal>
-        <AudioPlayer src={$modalContent} />
-      </Modal>
-    </div>
+    <Modal>
+      <AudioPlayer src={$modalContent} />
+    </Modal>
   {/if}
 </main>
 
@@ -50,12 +44,9 @@
     box-sizing: border-box;
   }
 
-  main {
-    color: #fff4e0;
-  }
-
   h2 {
     text-align: center;
+    margin-top: 15px;
   }
 
   ul {
@@ -63,7 +54,7 @@
   }
 
   .container {
-    padding: 20px 5%;
+    padding: 17px 5%;
   }
 
   .cover-gallery {
@@ -76,20 +67,5 @@
   .cover-gallery::after {
     content: '';
     flex-basis: 250px;
-  }
-
-  .overlay {
-    position: fixed;
-    padding: 0;
-    margin: 0;
-
-    top: 0;
-    left: 0;
-
-    width: 100%;
-    height: 100%;
-
-    background-color: rgba(0, 0, 0, 0.55);
-    backdrop-filter: blur;
   }
 </style>
