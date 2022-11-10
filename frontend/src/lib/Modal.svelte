@@ -1,6 +1,6 @@
 <script>
   import { isModalOpen } from '../stores/modalStore.js';
-  import { modalContent } from '../stores/modalStore.js';
+  // import { modalContent } from '../stores/modalStore.js';
 
   function openModal() {
     $isModalOpen = true;
