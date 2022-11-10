@@ -18,19 +18,20 @@
 
 <style>
   div {
-    color: #1a1a1d;
-    text-align: center;
-    position: absolute;
+    /* color: #1a1a1d; */
+    /* text-align: center; */
+    /* position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 20%;
-    height: 50%;
+    height: 50%; */
+
+    display: flex;
 
     background-color: rgba(44, 44, 44, 0.85);
     padding: 6rem;
     border-radius: 5px;
-    /* box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3); */
     z-index: 10;
   }
 

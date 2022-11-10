@@ -22,14 +22,16 @@
 
 <main>
   <h2>text</h2>
-  <div class="spread">
-    {#each data as album (album[0])}
-      <Cover
-        albumCoverUrl={album[3]}
-        albumTitle={album[1]}
-        albumTrack={album[2]}
-      />
-    {/each}
+  <div class="container">
+    <ul class="cover-gallery">
+      {#each data as album (album[0])}
+        <Cover
+          albumCoverUrl={album[3]}
+          albumTitle={album[1]}
+          albumTrack={album[2]}
+        />
+      {/each}
+    </ul>
   </div>
 
   {#if $isModalOpen}
@@ -42,6 +44,12 @@
 </main>
 
 <style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
   main {
     color: #fff4e0;
   }
@@ -50,11 +58,24 @@
     text-align: center;
   }
 
-  .spread {
-    max-width: 70%;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
+  ul {
+    list-style: none;
+  }
+
+  .container {
+    padding: 20px 5%;
+  }
+
+  .cover-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .cover-gallery::after {
+    content: '';
+    flex-basis: 250px;
   }
 
   .overlay {

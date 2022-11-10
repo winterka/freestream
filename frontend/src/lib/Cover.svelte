@@ -12,23 +12,56 @@
   }
 </script>
 
-<figure on:click={openModal}>
-  <img src={albumCoverUrl} alt={albumTitle} width="150" />
-  <figcaption>{albumTitle}</figcaption>
-</figure>
+<li on:click={openModal}>
+  <img src={albumCoverUrl} alt={albumTitle} />
+  <div class="overlay"><h3>{albumTitle}</h3></div>
+</li>
 
 <style>
-  figure,
-  img {
-    display: block;
-    margin: 0;
-    width: 100%;
+  li {
+    flex-basis: 250px;
+    position: relative;
     cursor: pointer;
   }
 
-  figcaption {
+  li img {
+    object-fit: cover;
+    max-width: 100%;
+    height: auto;
+    vertical-align: middle;
+    border-radius: 5px;
+  }
+
+  .overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(57, 57, 57, 0.5);
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 0.2s;
+    color: #fff;
+    border-radius: 5px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  li:hover .overlay {
+    opacity: 1;
+  }
+
+  /* .album-title {
+    position: relative;
+    text-align: center;
+    bottom: 33px;
+  } */
+
+  /* figcaption {
     text-align: center;
     margin-top: 0.2rem;
     font-size: 1.1rem;
-  }
+  } */
 </style>
