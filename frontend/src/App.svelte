@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import { onMount, tick } from 'svelte';
   import { isModalOpen, modalContent } from './stores/modalStore.js';
 
@@ -6,10 +6,10 @@
   import Modal from './lib/Modal.svelte';
   import AudioPlayer from './lib/AudioPlayer.svelte';
 
-  let data = [];
+  let data: any[] = [];
 
   onMount(async () => {
-    const res = await fetch('/api/get-tracks');
+    const res: Response = await fetch('/api/get-tracks');
     data = await res.json();
     await tick();
     console.log(data);

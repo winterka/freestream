@@ -1,8 +1,8 @@
-<script>
-  export let src;
+<script lang="ts">
+  export let src: string;
 
-  let audio;
-  let paused = true;
+  let audio: any;
+  let paused: boolean = true;
 </script>
 
 <audio bind:this={audio} bind:paused controls {src} />

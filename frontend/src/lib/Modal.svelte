@@ -1,11 +1,11 @@
-<script>
+<script lang="ts">
   import { isModalOpen } from '../stores/modalStore.js';
 
-  function openModal() {
+  function openModal(): void {
     $isModalOpen = true;
   }
 
-  function closeModal() {
+  function closeModal(): void {
     $isModalOpen = false;
   }
 </script>
@@ -35,17 +35,18 @@
     margin: 15% auto;
     padding: 20px;
     width: 30%;
+    overflow: auto;
   }
 
   button {
     /* position: relative;
-    top: 0.5rem;
-    right: 1rem;
-    font-size: 1.7rem;
-    color: rgb(255, 244, 224);
-    cursor: pointer;
-    border: none;
-    background: none; */
+      top: 0.5rem;
+      right: 1rem;
+      font-size: 1.7rem;
+      color: rgb(255, 244, 224);
+      cursor: pointer;
+      border: none;
+      background: none; */
 
     color: rgb(255, 244, 224);
     float: right;

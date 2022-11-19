@@ -1,12 +1,12 @@
-<script>
-  export let albumCoverUrl;
-  export let albumTitle;
-  export let albumTrack;
+<script lang="ts">
+  export let albumCoverUrl: string;
+  export let albumTitle: string;
+  export let albumTrack: string;
 
-  import { isModalOpen } from '../stores/modalStore.js';
-  import { modalContent } from '../stores/modalStore.js';
+  import { isModalOpen } from '../stores/modalStore';
+  import { modalContent } from '../stores/modalStore';
 
-  function openModal() {
+  function openModal(): void {
     $isModalOpen = true;
     $modalContent = albumTrack;
   }

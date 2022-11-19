@@ -1,4 +1,11 @@
 :root {
+  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+  color: rgb(255, 244, 224);
   background-color: #242424;
-  color: #fff4e0;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
 }
