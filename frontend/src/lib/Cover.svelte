@@ -11,7 +11,7 @@
   }
 </script>
 
-<li on:click={openModal} on:keydown|preventDefault={dummyFn}>
+<li on:click={openModal} on:keydown={dummyFn}>
   <img src={albumCoverUrl} alt={albumTitle} />
   <div class="overlay"><h3>{albumTitle}</h3></div>
 </li>
