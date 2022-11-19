@@ -3,8 +3,7 @@
   export let albumTitle: string;
   export let albumTrack: string;
 
-  import { isModalOpen } from '../stores/modalStore';
-  import { modalContent } from '../stores/modalStore';
+  import { isModalOpen, modalContent, dummyFn } from '../stores/modalStore';
 
   function openModal(): void {
     $isModalOpen = true;
@@ -12,7 +11,7 @@
   }
 </script>
 
-<li on:click={openModal}>
+<li on:click={openModal} on:keydown|preventDefault={dummyFn}>
   <img src={albumCoverUrl} alt={albumTitle} />
   <div class="overlay"><h3>{albumTitle}</h3></div>
 </li>

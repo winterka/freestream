@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { isModalOpen } from '../stores/modalStore.js';
+  import { isModalOpen, dummyFn } from '../stores/modalStore.js';
 
   function openModal(): void {
     $isModalOpen = true;
@@ -10,8 +10,12 @@
   }
 </script>
 
-<div class="outer-modal" on:click={closeModal}>
-  <div class="inner-modal" on:click|stopPropagation={openModal}>
+<div class="outer-modal" on:click={closeModal} on:keydown={dummyFn}>
+  <div
+    class="inner-modal"
+    on:click|stopPropagation={openModal}
+    on:keydown={dummyFn}
+  >
     <slot />
     <button on:click={closeModal}>&times;</button>
   </div>
