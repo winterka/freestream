@@ -6,7 +6,7 @@ from flask import jsonify
 from flask import send_from_directory
 from models import get_tracks, post_track
 
-app = Flask(__name__, template_folder='../frontend/dist', static_folder='../frontend/dist/assets')
+app = Flask(__name__, template_folder='//home/svelte/front/dist', static_folder='//home/svelte/front/dist/assets')
 
 @app.route("/", methods = ["GET","POST"])
 def home():

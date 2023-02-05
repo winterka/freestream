@@ -1,0 +1,22 @@
+services:
+  freestream_frontend:
+    build: ./frontend
+    ports: 
+      - "3000:3000"
+      - "5173:5173"
+    container_name: freestream_frontend
+    volumes:
+      - front:/home/svelte/front
+  freestream_backend:
+    build: ./backend
+    ports:
+      - "5000:5000"
+    container_name: freestream_backend
+    volumes:
+      - front:/home/svelte/front
+    depends_on:
+      - freestream_frontend
+volumes:
+  front:
+
+
